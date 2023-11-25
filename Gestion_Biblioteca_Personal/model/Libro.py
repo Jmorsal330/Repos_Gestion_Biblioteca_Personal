@@ -16,7 +16,7 @@ class Libro:
         :param anno_publicacion: Es la fecha de publicacion del libro
         """
         Libro.id += 1
-        self.id = Libro.id
+        self._id = Libro.id
         self.titulo = titulo
         self.autor = autor
         self.anno_publicacion = anno_publicacion
@@ -28,7 +28,7 @@ class Libro:
 
         :return: devuelve el nombre del titulo actual
         """
-        return self.titulo
+        return self._titulo
     @titulo.setter
     def titulo(self, nuevo_titulo):
         """
@@ -36,7 +36,7 @@ class Libro:
 
         :param nuevo_titulo: Es el nuevo nombre que recibe el libro
         """
-        self.titulo = nuevo_titulo
+        self._titulo = nuevo_titulo
 
     @property
     def autor(self):
@@ -45,7 +45,7 @@ class Libro:
 
         :return: devuelve el nombre del autor actual
         """
-        return self.autor
+        return self._autor
     @autor.setter
     def autor(self,nuevo_autor):
         """
@@ -53,7 +53,7 @@ class Libro:
 
         :param nuevo_autor: Es el nuevo nombre que recibe el autor del libro
         """
-        self.autor = nuevo_autor
+        self._autor = nuevo_autor
 
     @property
     def anno_publicacion(self):
@@ -62,7 +62,7 @@ class Libro:
 
         :return: devuele el anno de publicación actual
         """
-        return self.anno_publicacion
+        return self._anno_publicacion
     @anno_publicacion.setter
     def anno_publicacion(self, nuevo_anno_publicacion):
         """
@@ -70,7 +70,7 @@ class Libro:
 
         :param nuevo_anno_publicacion: Es el nuevo anno de publicacion del libro
         """
-        self.anno_publicacion = nuevo_anno_publicacion
+        self._anno_publicacion = nuevo_anno_publicacion
 
     def modificar_titulo(self,nuevo_titulo):
         """
