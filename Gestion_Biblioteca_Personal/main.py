@@ -1,4 +1,3 @@
-from controller.Controlador_Biblioteca import Controlador_Biblioteca
 from view.Vista_Biblioteca import Vista_Biblioteca
 
 if __name__ == '__main__':
