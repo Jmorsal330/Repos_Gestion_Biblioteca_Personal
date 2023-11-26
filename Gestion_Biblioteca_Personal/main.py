@@ -10,6 +10,5 @@ if __name__ == '__main__':
     """
 
     vista = Vista_Biblioteca()
-    vista.menu()
     vista.opcion_usuario()
 

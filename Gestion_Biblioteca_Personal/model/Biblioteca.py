@@ -30,9 +30,12 @@ class Biblioteca():
         :return:
         """
 
-        libro = Libro(titulo=titulo, autor=autor, anno_publicacion=anno_publicacion)
-
-        self._ListadoLibros.append(libro)
+        try:
+            libro = Libro(titulo=titulo, autor=autor, anno_publicacion=anno_publicacion)
+            self._ListadoLibros.append(libro)
+            print("Libro agregado con éxito.\n")
+        except ValueError as e:
+            print(f"Error al agregar libro: {e}\n")
 
     def eliminar_libro(self,id):
         """
@@ -40,41 +43,50 @@ class Biblioteca():
 
         :param id: ID del libro a eliminar
         """
-        for libro in self._ListadoLibros:
-            if(libro._id == id):
-                self._ListadoLibros.remove(libro)
-    def modifcar_libro(self,id):
+        try:
+            for libro in self._ListadoLibros:
+                if(libro._id == id):
+                    self._ListadoLibros.remove(libro)
+                    print("Libro eliminado con exito \n")
+        except Exception as e:
+            print(f"Error al eliminar libro: {e}\n")
+    def modificar_libro(self,id):
         """
         Proporciona un menú interactivo para modificar un libro según su ID.
 
         :param id: ID del libro a modificar
         """
-        while True:
-            print("Que deseas modificar: ")
-            print("1.- Título")
-            print("2.- Autor")
-            print("3.- Anno de Publicacion")
-            print("0.- Salir")
-            condc = int(input())
+        try:
+            while True:
+                print("Que deseas modificar: ")
+                print("1.- Título")
+                print("2.- Autor")
+                print("3.- Anno de Publicacion")
+                print("0.- Salir \n")
+                condc = int(input())
 
-            if(condc == 1):
-                nuevo_titulo = input("Indicame el Titulo nuevo: ")
-                for libro in self._ListadoLibros:
-                    if (libro._id == id):
-                        libro.modificar_titulo(nuevo_titulo)
-            if (condc == 2):
-                nuevo_autor = input("Indicame el autor nuevo: ")
-                for libro in self._ListadoLibros:
-                    if (libro._id == id):
-                        libro.modificar_autor(nuevo_autor)
-            if (condc == 3):
-                nuevo_anno_publicacion = input("Indicame el nuevo anno de publicacion: ")
-                for libro in self._ListadoLibros:
-                    if (libro._id == id):
-                        libro.modificar_anno_publicacion(nuevo_anno_publicacion)
-            if (condc == 0):
-                print("Has salido de manera exitosa")
-                break
+                if(condc == 1):
+                    nuevo_titulo = input("Indicame el Titulo nuevo: ")
+                    for libro in self._ListadoLibros:
+                        if (libro._id == id):
+                            libro.modificar_titulo(nuevo_titulo)
+                elif(condc == 2):
+                    nuevo_autor = input("Indicame el autor nuevo: ")
+                    for libro in self._ListadoLibros:
+                        if (libro._id == id):
+                            libro.modificar_autor(nuevo_autor)
+                elif(condc == 3):
+                    nuevo_anno_publicacion = input("Indicame el nuevo anno de publicacion: ")
+                    for libro in self._ListadoLibros:
+                        if (libro._id == id):
+                            libro.modificar_anno_publicacion(nuevo_anno_publicacion)
+                elif(condc == 0):
+                    print("Has salido de modificar el libro\n")
+                    break
+                else:
+                    print("Opción no válida. Por favor, elige una opción válida.\n")
+        except Exception as e:
+            print(f"Error al modificar libro: {e}\n")
     def buscar_libro(self,id):
         """
         Busca un libro en la biblioteca según su ID y devuelve el objeto Libro correspondiente.
@@ -82,10 +94,14 @@ class Biblioteca():
         :param id: ID del libro a buscar
         :return: Objeto Libro si se encuentra, None si no se encuentra
         """
-        for libro in self._ListadoLibros:
-            if (libro._id == id):
-                return libro
-        return None
+        try:
+            for libro in self._ListadoLibros:
+                if (libro._id == id):
+                    print(f"Libro encontrado: {libro}")
+                    return libro
+        except Exception as e:
+            print(f"Error al buscar libro: {e}\n")
+            return None
 
     def __str__(self):
         """

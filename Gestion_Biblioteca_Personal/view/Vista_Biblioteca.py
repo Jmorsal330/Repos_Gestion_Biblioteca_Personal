@@ -14,7 +14,7 @@ class Vista_Biblioteca():
         """
         Muestra el menú principal de la aplicación.
         """
-        print("------ Menú Principal ------")
+        print("\n------ Menú Principal ------")
         print("1. Agregar Libro")
         print("2. Eliminar Libro")
         print("3. Modificar Libro")
@@ -27,25 +27,33 @@ class Vista_Biblioteca():
         Maneja las opciones ingresadas por el usuario y realiza las acciones correspondientes.
         """
         while True:
-            opc = int(input("Indicame una Opcion: "))
 
-            if(opc == 1):
-                t = input("Indicame el titulo: ")
-                a = input("Indicame el autor: ")
-                anno = input("Indicame el anno de publicacion: ")
-                self.controlador.agregar_libro(t,a,anno)
-            if(opc == 2):
-                id = int(input("Indicame el id del libro a eliminar: "))
-                self.controlador.eliminar_libro(id)
-            if(opc == 3):
-                id = int(input("Indicame el id del libro a modificar: "))
-                self.controlador.modificar_libro(id)
-            if(opc == 4):
-                id = int(input("Indicame el id del libro a buscar: "))
-                self.controlador.buscar_libro(id)
-            if(opc == 5):
-                print(self.controlador)
-            if(opc == 0):
-                print("Has salido con exito")
-                break
+            self.menu()
+
+            try:
+                opc = int(input("\nIndicame una Opcion: \n"))
+
+                if opc == 1:
+                    t = input("Indicame el titulo: ")
+                    a = input("Indicame el autor: ")
+                    anno = input("Indicame el anno de publicacion: ")
+                    self.controlador.agregar_libro(t, a, anno)
+                elif opc == 2:
+                    id = int(input("Indicame el id del libro a eliminar: "))
+                    self.controlador.eliminar_libro(id)
+                elif opc == 3:
+                    id = int(input("Indicame el id del libro a modificar: "))
+                    self.controlador.modificar_libro(id)
+                elif opc == 4:
+                    id = int(input("Indicame el id del libro a buscar: \n"))
+                elif opc == 5:
+                    print(self.controlador)
+                elif opc == 0:
+                    print("Has salido con exito\n")
+                    break
+                else:
+                    print("Opción no válida. Por favor, elige una opción válida.")
+
+            except ValueError:
+                print("Error: Ingresa un número entero válido.")
 

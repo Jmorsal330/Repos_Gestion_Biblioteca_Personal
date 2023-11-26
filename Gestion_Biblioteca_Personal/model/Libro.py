@@ -48,6 +48,10 @@ class Libro:
 
         :param nuevo_titulo: Nuevo título del libro
         """
+        # Este if hace que si no es una istancia de str el nuevo_titulo, lanza true y entra
+        if not isinstance(nuevo_titulo, str):
+            # raise lanza una excepcion
+            raise ValueError("El título debe ser una cadena de caracteres.")
         self._titulo = nuevo_titulo
 
     @property
@@ -65,6 +69,8 @@ class Libro:
 
         :param nuevo_autor: Nuevo autor del libro
         """
+        if not isinstance(nuevo_autor, str):
+            raise ValueError("El autor debe ser una cadena de caracteres.")
         self._autor = nuevo_autor
 
     @property
@@ -82,6 +88,8 @@ class Libro:
 
         :param nuevo_anno_publicacion: Nuevo año de publicación del libro
         """
+        if not isinstance(nuevo_anno_publicacion, str):
+            raise ValueError("El año de publicación debe ser una cadena de caracteres.")
         self._anno_publicacion = nuevo_anno_publicacion
 
     def modificar_titulo(self,nuevo_titulo):
@@ -90,7 +98,11 @@ class Libro:
 
         :param nuevo_titulo: Nuevo título del libro
         """
-        self.titulo = nuevo_titulo
+        try:
+            self.titulo = nuevo_titulo
+            print("Título modificado con éxito.")
+        except ValueError as e:
+            print(f"Error al modificar título: {e}")
 
     def modificar_autor(self,nuevo_autor):
         """
@@ -98,7 +110,11 @@ class Libro:
 
         :param nuevo_autor:  Nuevo autor del libro
         """
-        self.autor = nuevo_autor
+        try:
+            self.autor = nuevo_autor
+            print("Autor modificado con éxito.")
+        except ValueError as e:
+            print(f"Error al modificar autor: {e}")
 
     def modificar_anno_publicacion(self,nuevo_anno_publicacion):
         """
@@ -106,7 +122,11 @@ class Libro:
 
         :param nuevo_anno_publicacion:  Nuevo año de publicación del libro
         """
-        self.anno_publicacion = nuevo_anno_publicacion
+        try:
+            self.anno_publicacion = nuevo_anno_publicacion
+            print("Año de publicación modificado con éxito.")
+        except ValueError as e:
+            print(f"Error al modificar año de publicación: {e}")
 
 
     def __str__(self):
