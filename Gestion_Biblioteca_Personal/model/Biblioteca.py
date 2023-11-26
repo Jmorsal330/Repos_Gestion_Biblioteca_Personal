@@ -27,12 +27,13 @@ class Biblioteca():
         :param titulo: Título del libro
         :param autor: Autor del libro
         :param anno_publicacion: Año de publicación del libro
-        :return:
+        :return: Objeto Libro si se agrega con éxito, None si hay un error
         """
 
         try:
             libro = Libro(titulo=titulo, autor=autor, anno_publicacion=anno_publicacion)
             self._ListadoLibros.append(libro)
+            return libro
             print("Libro agregado con éxito.\n")
         except ValueError as e:
             print(f"Error al agregar libro: {e}\n")
@@ -42,12 +43,14 @@ class Biblioteca():
         Elimina un libro de la biblioteca según su ID.
 
         :param id: ID del libro a eliminar
+        :return: Lista actualizada de libros en la biblioteca
         """
         try:
             for libro in self._ListadoLibros:
                 if(libro._id == id):
                     self._ListadoLibros.remove(libro)
                     print("Libro eliminado con exito \n")
+                    return self._ListadoLibros
         except Exception as e:
             print(f"Error al eliminar libro: {e}\n")
     def modificar_libro(self,id):
@@ -55,6 +58,7 @@ class Biblioteca():
         Proporciona un menú interactivo para modificar un libro según su ID.
 
         :param id: ID del libro a modificar
+        :return: Lista actualizada de libros en la biblioteca
         """
         try:
             while True:
@@ -82,6 +86,7 @@ class Biblioteca():
                             libro.modificar_anno_publicacion(nuevo_anno_publicacion)
                 elif(condc == 0):
                     print("Has salido de modificar el libro\n")
+                    return self._ListadoLibros
                     break
                 else:
                     print("Opción no válida. Por favor, elige una opción válida.\n")

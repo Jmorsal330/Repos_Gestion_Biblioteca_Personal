@@ -8,6 +8,8 @@ class Libro:
     - modificar_autor(nuevo_autor): Modifica el autor del libro.
     - modificar_anno_publicacion(nuevo_anno_publicacion): Modifica el año de publicación del libro.
     - __str__(): Devuelve una representación en cadena del contenido del libro.
+    - __dict__(): Método que devuelve un diccionario que representa el libro.
+
 
     Atributos:
     - id: Variable de clase para asignar un ID único a cada libro.
@@ -136,3 +138,18 @@ class Libro:
         :return: Cadena que representa el contenido del libro
         """
         return (f'id= {self._id} \ntitulo= {self.titulo} \nautor= {self.autor} \naño de publicación= {self.anno_publicacion} \n')
+
+
+    def __dict__(self):
+        """
+        Método que devuelve un diccionario que representa el libro.
+
+        :return: Diccionario con las propiedades del libro
+        """
+        # __dict__ indica como debe ser el json de libro
+        return {
+            'id':self._id,
+            'titulo': self.titulo,
+            'autor': self.autor,
+            'anno_publicacion': self.anno_publicacion
+        },

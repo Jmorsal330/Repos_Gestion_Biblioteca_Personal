@@ -1,5 +1,5 @@
 from model.Biblioteca import Biblioteca
-
+from controller.Controlador_Json import Controlador_Json
 class Controlador_Biblioteca():
     """
     Clase que actúa como controlador para manipular una instancia de la clase Biblioteca.
@@ -20,9 +20,10 @@ class Controlador_Biblioteca():
         """
         Constructor de la clase Controlador_Biblioteca.
 
-        Inicializa la instancia de Biblioteca como un atributo.
+        Inicializa la instancia de Biblioteca y Controlador_Json como atributos.
         """
         self.biblioteca = Biblioteca()
+        self.controlador_json = Controlador_Json()
 
     def agregar_libro(self, titulo, autor, anno_publicacion):
         """
@@ -32,7 +33,8 @@ class Controlador_Biblioteca():
         :param autor: Autor del libro.
         :param anno_publicacion: Año de publicación del libro.
         """
-        self.biblioteca.agregar_libro(titulo, autor, anno_publicacion)
+        self.controlador_json.agregar_libro_fichero(self.biblioteca.agregar_libro(titulo, autor, anno_publicacion))
+
 
     def eliminar_libro(self, id):
         """
@@ -40,7 +42,8 @@ class Controlador_Biblioteca():
 
         :param id: ID del libro a eliminar.
         """
-        self.biblioteca.eliminar_libro(id)
+        self.controlador_json.eliminar_libro(self.biblioteca.eliminar_libro(id))
+
 
     def modificar_libro(self, id):
         """
@@ -48,7 +51,8 @@ class Controlador_Biblioteca():
 
         :param id: ID del libro a modificar.
         """
-        self.biblioteca.modificar_libro(id)
+        self.controlador_json.modificar_libro(self.biblioteca.modificar_libro(id))
+
 
     def buscar_libro(self, id):
         """
