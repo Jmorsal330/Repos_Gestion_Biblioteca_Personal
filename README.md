@@ -13,4 +13,4 @@ Sistema de gestión de biblioteca personal en Python que permita a los usuarios 
    git clone https://github.com/Jmorsal330/Repos_Gestion_Biblioteca_Personal.git
 ```
 # Historial de Cambios
-Consulta el archivo CHANGELOG.md para ver el historial de cambios.
+Consulta el archivo [[CHANGELOG.md]] para ver el historial de cambios.
