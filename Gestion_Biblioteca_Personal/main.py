@@ -15,7 +15,4 @@ if __name__ == '__main__':
     biblioteca.agregar_libro(titulo="b",autor="b",anno_publicacion="b")
     biblioteca.agregar_libro(titulo="c",autor="c",anno_publicacion="c")
 
-    biblioteca.eliminar_libro_id(1)
-    print(biblioteca)
-
-
+    print(biblioteca.buscar_libro(1))

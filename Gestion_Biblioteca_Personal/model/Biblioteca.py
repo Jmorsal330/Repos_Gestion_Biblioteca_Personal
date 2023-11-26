@@ -43,6 +43,49 @@ class Biblioteca():
         for libro in self._ListadoLibros:
             if(libro._id == id):
                 self._ListadoLibros.remove(libro)
+    def modifcar_libro(self,id):
+        """
+        Proporciona un menú interactivo para modificar un libro según su ID.
+
+        :param id: ID del libro a modificar
+        """
+        while True:
+            print("Que deseas modificar: ")
+            print("1.- Título")
+            print("2.- Autor")
+            print("3.- Anno de Publicacion")
+            print("0.- Salir")
+            condc = int(input())
+
+            if(condc == 1):
+                nuevo_titulo = input("Indicame el Titulo nuevo: ")
+                for libro in self._ListadoLibros:
+                    if (libro._id == id):
+                        libro.modificar_titulo(nuevo_titulo)
+            if (condc == 2):
+                nuevo_autor = input("Indicame el autor nuevo: ")
+                for libro in self._ListadoLibros:
+                    if (libro._id == id):
+                        libro.modificar_autor(nuevo_autor)
+            if (condc == 3):
+                nuevo_anno_publicacion = input("Indicame el nuevo anno de publicacion: ")
+                for libro in self._ListadoLibros:
+                    if (libro._id == id):
+                        libro.modificar_anno_publicacion(nuevo_anno_publicacion)
+            if (condc == 0):
+                print("Has salido de manera exitosa")
+                break
+    def buscar_libro(self,id):
+        """
+        Busca un libro en la biblioteca según su ID y devuelve el objeto Libro correspondiente.
+
+        :param id: ID del libro a buscar
+        :return: Objeto Libro si se encuentra, None si no se encuentra
+        """
+        for libro in self._ListadoLibros:
+            if (libro._id == id):
+                return libro
+        return None
 
     def __str__(self):
         """
