@@ -8,7 +8,9 @@ Sistema de gestión de biblioteca personal en Python que permita a los usuarios 
 - Python 3.6 o superior
 
 ## Instalación
-1. Clona el repositorio: `git clone https://github.com/Jmorsal330/Repos_Gestion_Biblioteca_Personal.git`
-2. 
+1. Clona el repositorio:
+```
+   git clone https://github.com/Jmorsal330/Repos_Gestion_Biblioteca_Personal.git
+```
 # Historial de Cambios
 Consulta el archivo CHANGELOG.md para ver el historial de cambios.
