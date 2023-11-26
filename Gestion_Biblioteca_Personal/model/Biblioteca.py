@@ -34,7 +34,7 @@ class Biblioteca():
 
         self._ListadoLibros.append(libro)
 
-    def eliminar_libro_id(self,id):
+    def eliminar_libro(self,id):
         """
         Elimina un libro de la biblioteca según su ID.
 

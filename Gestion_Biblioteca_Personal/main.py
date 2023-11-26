@@ -1,5 +1,4 @@
-from model.Libro import Libro
-from model.Biblioteca import Biblioteca
+from controller.Controlador_Biblioteca import Controlador_Biblioteca
 
 if __name__ == '__main__':
     """
@@ -9,10 +8,6 @@ if __name__ == '__main__':
         autor: Javier Moreno Salas
     """
 
-    biblioteca = Biblioteca()
 
-    biblioteca.agregar_libro(titulo="a",autor="a",anno_publicacion="a")
-    biblioteca.agregar_libro(titulo="b",autor="b",anno_publicacion="b")
-    biblioteca.agregar_libro(titulo="c",autor="c",anno_publicacion="c")
 
-    print(biblioteca.buscar_libro(1))
+
